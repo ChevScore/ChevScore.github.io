@@ -1,0 +1,92 @@
+@import url(https://fonts.googleapis.com/css?family=Consolas);
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*~~~SCROLLBAR~~~*/
+::-webkit-scrollbar {
+    width: 30px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #f1f1f100;
+    border: solid 10px rgb(32, 32, 41);
+  }
+   
+  ::-webkit-scrollbar-thumb {
+    background: #77c9b347;
+    border-radius: 100px;
+    border: solid 10px rgb(32, 32, 41);
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #77c9b3; 
+  }
+
+html {
+    font-family: "Consolas", monospace;
+    background-color: rgb(32, 32, 41);
+}
+
+menu, nav {
+    display: inline;
+}
+
+header {
+    display: flex;
+    padding-top: 1rem;
+}
+
+nav {
+    flex: 5;
+    text-align: right;
+    margin-right: 1rem;
+}
+
+.logo-holder {
+    flex: 2;
+}
+
+.logo {
+    max-width: 5rem;
+    margin-left: 1rem;
+}
+
+menu li {
+    list-style-type: none;
+    display: inline;
+}
+
+.navlinks {
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.5em;
+    color: rgba(245, 245, 245, 0.5);
+}
+
+.navlinks:hover, .navlinks:focus {
+    color: rgba(245, 245, 245, 0.9);
+}
+
+.greeting-text {
+    font-size: 5rem;
+    font-weight: 900;
+    line-height: 1em;
+    color: whitesmoke;
+    height: 32rem;
+    vertical-align: middle;
+    padding: 11rem 2rem;
+    user-select: none;
+}
+
+.cursor {
+    font-weight: 400;
+    color: white;
+}
+
+section {
+    padding: 1rem 1rem;
+}
