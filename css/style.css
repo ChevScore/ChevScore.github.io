@@ -68,6 +68,7 @@ menu li {
     letter-spacing: 0.1rem;
     font-size: 1.5rem;
     color: #77c9b368;
+    transition: 0.3s;
 }
 
 .navlinks:hover, .navlinks:focus {
@@ -93,6 +94,7 @@ menu li {
     animation-name: float-text;
     animation-duration: 1s;
     animation-iteration-count: infinite;
+    transition: color 1s;
 }
 
 @keyframes float-text {
@@ -111,9 +113,67 @@ menu li {
 }
 
 h2 {
-    font-size: 4rem;
-    padding: 2rem 1rem;
+    font-size: 3rem;
+    margin-top: 1em;
+    padding: 2rem 2rem;
+    text-align: center;
     color: rgb(32, 32, 41);
+    white-space: nowrap;
+    width: 0;
+    transition: width 1s ease, color 2s ease;
+}
+
+.heading-container {
     background-color: #ffcd34;
 }
 
+.heading-container:hover > h2,  .heading-container:focus > h2{
+    background-color: #333333;
+    color: whitesmoke;
+    width: 100%;
+    transition: width 1s ease;
+}
+
+p {
+    color: #f4f4f4;
+    padding: 2rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-align: justify;
+    letter-spacing: 1px;
+    line-height: 1.5em;
+    font-size: 1.4rem;
+}
+
+a {
+    color: #77c9b3;
+    background-image: linear-gradient(#ffcd34, #ffcd34);
+    background-size: 0% 0.1em;
+    background-position-y: 100%;
+    background-position-x: 0%;
+    background-repeat: no-repeat;
+    transition: background-size 0.2s ease-in-out;
+    text-decoration: none;
+}
+  
+a:hover,
+a:focus,
+a:active {
+    background-size: 100% 0.1em;
+}
+
+p a {
+    color: #77c9b3;
+    background-image: linear-gradient(#ffcd34, #ffcd34);
+    background-size: 0% 0.1em;
+    background-position-y: 100%;
+    background-repeat: no-repeat;
+    transition: background-size 0.2s ease-in-out, color 0.2s ease-in-out;
+    text-decoration: none;
+}
+  
+p a:hover,
+p a:focus,
+p a:active {
+    color: rgb(32, 32, 41);
+    background-size: 100% 100%;
+}
