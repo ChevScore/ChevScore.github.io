@@ -29,6 +29,7 @@
 html {
     font-family: "Consolas", monospace;
     background-color: rgb(32, 32, 41);
+    scroll-behavior: smooth;
 }
 
 menu, nav {
@@ -61,32 +62,58 @@ menu li {
 }
 
 .navlinks {
+    padding: 0 0.6rem;
     text-decoration: none;
     font-weight: 500;
-    font-size: 1.5em;
-    color: rgba(245, 245, 245, 0.5);
+    letter-spacing: 0.1rem;
+    font-size: 1.5rem;
+    color: #77c9b368;
 }
 
 .navlinks:hover, .navlinks:focus {
-    color: rgba(245, 245, 245, 0.9);
+    color: #77c9b3;
 }
 
 .greeting-text {
-    font-size: 5rem;
+    font-size: 6rem;
     font-weight: 900;
     line-height: 1em;
     color: whitesmoke;
-    height: 32rem;
+    height: 30rem;
     vertical-align: middle;
-    padding: 11rem 2rem;
+    padding: 10rem 0 0 2rem;
     user-select: none;
 }
 
-.cursor {
-    font-weight: 400;
-    color: white;
+.scroll-down-text {
+    text-align: center;
+    color: #77c9b3;
+    min-height: 5rem;
+    letter-spacing: 0.8rem;
+    animation-name: float-text;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
 }
 
-section {
-    padding: 1rem 1rem;
+@keyframes float-text {
+    0% {}
+    50% {padding-top: 1em;}
 }
+
+.scroll-down-text:hover {
+    color: #ffcd34;
+}
+
+
+.cursor {
+    font-weight: 400;
+    color: whitesmoke;
+}
+
+h2 {
+    font-size: 4rem;
+    padding: 2rem 1rem;
+    color: rgb(32, 32, 41);
+    background-color: #ffcd34;
+}
+

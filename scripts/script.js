@@ -77,3 +77,9 @@ function hoverLogo(element) {
 function unhoverLogo(element) {
     element.setAttribute("src", "/assets/logo.png")
 }
+
+// ~~~~~~~~~~~~ SCROLL-DOWN TEXT ~~~~~~~~~~~~ //
+var scrolldownText = document.createElement("h3")
+scrolldownText.innerHTML = "⮮ SCROLL DOWN ⮯"
+scrolldownText.className = "scroll-down-text"
+greetingSection.append(scrolldownText)
