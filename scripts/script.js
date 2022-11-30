@@ -83,3 +83,66 @@ var scrolldownText = document.createElement("h3")
 scrolldownText.innerHTML = "⮮ SCROLL DOWN ⮯"
 scrolldownText.className = "scroll-down-text"
 greetingSection.append(scrolldownText)
+
+// ~~~~~~~~~~~~ PORTFOLIO OBJECT LOAD ~~~~~~~~~~~~ //
+var portfolioSection = document.getElementById("portfolio") 
+let portfolioItemCollection = document.createElement("div")
+portfolioItemCollection.className = "portfolio-item-section"
+portfolioSection.append(portfolioItemCollection)
+
+async function loadPortfolio(location) {
+    let response = await fetch(location)
+    let portfolioJSON = await response.json()
+
+    portfolioJSON["items"].forEach(element => {
+        createPortfolioItem(
+            element["id"],
+            element["image"],
+            element["title"],
+            element["content"]
+        )
+    });
+}
+loadPortfolio("/config/content.json")
+
+function createPortfolioItem(id, imageURL, title, content) {
+    let itemFrame = document.createElement("div")
+    let itemImage = document.createElement("img")
+    let itemTitle = document.createElement("h3")
+    let itemContent = document.createElement("p")
+    itemFrame.className = "item-frame"
+    itemFrame.id = id
+    itemImage.className = "item-image"
+    itemTitle.className = "item-title"
+    itemContent.className = "item-content"
+
+    itemImage.setAttribute("src", imageURL)
+    itemTitle.innerText = title
+    itemContent.innerText = content
+
+    itemFrame.append(itemImage)
+    itemFrame.append(itemTitle)
+    itemFrame.append(itemContent)
+
+    portfolioItemCollection.append(itemFrame)
+}
+
+const regex = /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/
+
+function validateEmail(email) {
+    let match = email.search(regex)
+    return (match != -1)
+}
+
+function submitForm(form) {
+    console.log("HIIIIIIIIIIIII")
+    let name = document.getElementById("name")
+    let email = document.getElementById("email")
+    let subject = document.getElementById("subject")
+    let message = document.getElementById("message")
+
+    if (!validateEmail(email.value)) {
+        email.className = "invalid-email field email"
+        console.log("HIIIIIIIIIIIII")
+    }
+}

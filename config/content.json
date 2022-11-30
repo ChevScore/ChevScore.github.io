@@ -1,0 +1,18 @@
+{
+    "number"    : 3,
+    "keys"      : ["id", "image", "title", "content"],
+    "items"     : [
+        {
+            "id"        : "atlantis",
+            "image"     : "/assets/atlantis-sinks.png",
+            "title"     : "Atlantis Sinks",
+            "content"   : "..."
+        },
+        {
+            "id"        : "floodit",
+            "image"     : "/assets/floodit.png",
+            "title"     : "Floodit",
+            "content"   : "..."
+        }
+    ]
+}
