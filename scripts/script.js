@@ -1,3 +1,40 @@
+// ~~~~~~~~~~~~HAMBURGER ICON~~~~~~~~~~~~ //
+var openedState = 0
+
+function openMenu(element) {
+    let menu = document.getElementById("hamburger")
+    if (openedState == 0) {
+        menu.classList.add("opened-burger")
+        document.getElementById("hamburger-holder").style.right = "calc(25vw + 3rem)"
+        document.getElementById("header").style.marginRight = "25vw"
+        document.getElementById("main").style.marginRight = "25vw"
+        document.getElementById("footer").style.marginRight = "25vw"
+        document.getElementById("side").style.width = "25vw"
+        document.getElementById("nav").setAttribute("style", "right: 25vw;")
+    } else {
+        menu.classList.remove("opened-burger")
+        document.getElementById("hamburger-holder").style.right = "3rem"
+        document.getElementById("header").style.marginRight = "0"
+        document.getElementById("main").style.marginRight = "0"
+        document.getElementById("footer").style.marginRight = "0"
+        document.getElementById("side").style.width = "0"
+        document.getElementById("nav").setAttribute("style", "right: 0;")
+    }
+    openedState = 1 - openedState
+}
+
+function resizeWindow() {
+    if (openedState == 1) {
+        openMenu(document)
+    }
+}
+
+
+
+window.onload = resizeWindow
+window.onresize = resizeWindow
+
+
 // ~~~~~~~~~~~~SET-UP GREETING~~~~~~~~~~~~ //
 var greeting = "Hi!<br>I am Muhammad"
 var greetingSection = document.getElementById("greeting")
@@ -146,3 +183,4 @@ function submitForm(form) {
         console.log("HIIIIIIIIIIIII")
     }
 }
+
