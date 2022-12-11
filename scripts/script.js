@@ -5,15 +5,17 @@ function openMenu(element) {
     let menu = document.getElementById("hamburger")
     if (openedState == 0) {
         menu.classList.add("opened-burger")
-        document.getElementById("hamburger-holder").style.right = "calc(25vw + 3rem)"
-        document.getElementById("header").style.marginRight = "25vw"
-        document.getElementById("main").style.marginRight = "25vw"
-        document.getElementById("footer").style.marginRight = "25vw"
-        document.getElementById("side").style.width = "25vw"
-        document.getElementById("nav").setAttribute("style", "right: 25vw;")
+        document.getElementById("hamburger-holder").style.right = "18rem"
+        document.getElementById("links").style.right = "15rem"
+        document.getElementById("header").style.marginRight = "15rem"
+        document.getElementById("main").style.marginRight = "15rem"
+        document.getElementById("footer").style.marginRight = "15rem"
+        document.getElementById("side").style.width = "15rem"
+        document.getElementById("nav").setAttribute("style", "right: 15rem;")
     } else {
         menu.classList.remove("opened-burger")
         document.getElementById("hamburger-holder").style.right = "3rem"
+        document.getElementById("links").style.right = "0"
         document.getElementById("header").style.marginRight = "0"
         document.getElementById("main").style.marginRight = "0"
         document.getElementById("footer").style.marginRight = "0"
@@ -117,7 +119,7 @@ function unhoverLogo(element) {
 
 // ~~~~~~~~~~~~ SCROLL-DOWN TEXT ~~~~~~~~~~~~ //
 var scrolldownText = document.createElement("h3")
-scrolldownText.innerHTML = "⮮ SCROLL DOWN ⮯"
+scrolldownText.innerHTML = "SCROLL DOWN"
 scrolldownText.className = "scroll-down-text"
 greetingSection.append(scrolldownText)
 
@@ -172,7 +174,6 @@ function validateEmail(email) {
 }
 
 function submitForm(form) {
-    console.log("HIIIIIIIIIIIII")
     let name = document.getElementById("name")
     let email = document.getElementById("email")
     let subject = document.getElementById("subject")
@@ -180,7 +181,6 @@ function submitForm(form) {
 
     if (!validateEmail(email.value)) {
         email.className = "invalid-email field email"
-        console.log("HIIIIIIIIIIIII")
+        return
     }
 }
-

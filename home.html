@@ -15422,7 +15422,7 @@
             <div class="heading-container contact">
                 <h2>Contact me</h2>
             </div>
-            <form class="contact-form" onsubmit="return false">
+            <form class="contact-form" onsubmit="submitForm(); return false;">
                 <div class="name-holder holder">
                     <h4>Full Name</h4>
                     <input type="text" id="name" class="name field" autocomplete="off">
@@ -15442,14 +15442,14 @@
                         <textarea name="message" id="message" class="message field" cols="1" rows="2"></textarea>
                     </div>
                     <div class="button-holder holder">
-                        <button class="submit-button" type="submit" onclick="submitForm()">Send</button>
+                        <button class="submit-button" type="submit">Send</button>
                     </div>
                 </div>
             </form>
         </section>
     </main>
     <footer id="footer">
-        <div class="links">
+        <div id="links" class="links">
             <a title="GitHub" alt="Link to my GitHub Profile" target="_blank" href="https://github.com/ChevScore"><svg
                     class="link" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24">
                     <path
@@ -15478,7 +15478,6 @@
     <div id="side" class="side-bar">
 
     </div>
-    <script src="https://smtpjs.com/v3/smtp.js"></script>
     <script src="/scripts/script.js"></script>
 </body>
 </html>
