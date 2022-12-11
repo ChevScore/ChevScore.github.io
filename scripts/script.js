@@ -108,15 +108,6 @@ function clearGreeting() {
     greetingStep -= 1
 }
 
-// ~~~~~~~~~~~~HOVER-LOGO EFFECT~~~~~~~~~~~~ //
-function hoverLogo(element) {
-    element.setAttribute("src", "/assets/logo-hover.png")
-}
-
-function unhoverLogo(element) {
-    element.setAttribute("src", "/assets/logo.png")
-}
-
 // ~~~~~~~~~~~~ SCROLL-DOWN TEXT ~~~~~~~~~~~~ //
 var scrolldownText = document.createElement("h3")
 scrolldownText.innerHTML = "SCROLL DOWN"
@@ -180,7 +171,11 @@ function submitForm(form) {
     let message = document.getElementById("message")
 
     if (!validateEmail(email.value)) {
-        email.className = "invalid-email field email"
+        if (email.classList.contains("invalid-email")) {
+            email.className = "invalid-email2 field email"
+        } else {
+            email.className = "invalid-email field email"
+        }
         return
     }
 }

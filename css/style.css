@@ -24,6 +24,33 @@
 ::-webkit-scrollbar-thumb:hover {
 	background: #77c9b3;
 }
+.content {
+	display: none;
+}
+.loading-icon {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+.loading-icon > #left-bracket {
+	animation: flip 1.5s linear 0.5s infinite;
+	animation-direction: normal;
+	transform-origin: center center;
+}
+.loading-icon > #right-bracket {
+	animation: flip 2s linear 0.5s infinite;
+	animation-direction: reverse;
+	transform-origin: center center;
+}
+@keyframes flip {
+	12.5% {
+		transform: scaleY(0);
+	}
+	25% {
+		transform: scaleY(100%);
+	}
+}
 header, main, footer {
 	transition: margin 1s ease;
 }
@@ -48,8 +75,17 @@ nav {
 .logo-holder {
 	float: left;
 }
-.logo {
-	max-width: 5rem;
+#left-bracket, #M, #right-bracket {
+	transition: all 0.5s ease;
+}
+.logo:hover > #left-bracket {
+	transform: translateX(20%);
+}
+.logo:hover > #right-bracket {
+	transform: translateX(-20%);
+}
+.logo:hover > #M {
+	filter: opacity(0);
 }
 .hamburger {
 	transition: all 1s ease, fill 0.3s ease;
@@ -183,8 +219,9 @@ menu li {
 	color: #ffcd34;
 }
 .cursor {
-	font-weight: 400;
-	color: whitesmoke;
+	margin-left: -0.2em;
+	font-weight: lighter;
+	color: #77c9b3;
 }
 h2 {
 	font-size: 3rem;
@@ -373,7 +410,32 @@ p a:hover,p a:focus,p a:active {
 .invalid-email:hover {
 	border: solid 2px rgb(135, 15, 15);
 }
+.invalid-email2 {
+	border: solid 2px rgb(220, 20, 20);
+	animation-name: shake2;
+	animation-duration: 0.2s;
+}
+.invalid-email2:hover {
+	border: solid 2px rgb(135, 15, 15);
+}
 @keyframes shake {
+	0% {
+		transform: translate(-2%, 0)
+}
+	25% {
+		transform: translate(0, 0)
+}
+	50% {
+		transform: translate(2%, 0)
+}
+	75% {
+		transform: translate(0, 0)
+}
+	100% {
+		transform: translate(0, 0)
+}
+}
+@keyframes shake2 {
 	0% {
 		transform: translate(-2%, 0)
 }
