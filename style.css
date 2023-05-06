@@ -4,7 +4,7 @@
 /* Setting up CSS variables                                                */
 /*=======================================================================*/
 :root {
-    --background: #242425;
+    --background: #555555;
     --white: #eee;
     --grey: #9c9c9c;
     --dark-grey: #151515;
@@ -34,5 +34,6 @@
 
 body {
     background-color: var(--background);
+    overflow: hidden;
 }
 
