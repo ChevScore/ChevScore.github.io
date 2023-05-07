@@ -122,22 +122,32 @@ function drawMenuFrame() {
 
 function decode(target) {
     console.log("Decoding");
+
+    if (target.classList.contains("in-progress")) {
+        return;
+    }
+
+    target.classList.add("in-progress");
+
     let text = target.innerHTML;
     let maxCount = 3;
-    let count = 1;
-    let delay = 0;
+    let delay = 100;
     let speed = 1 / text.length;
 
     for (let i = 1; i <= text.length; i++) {
         for (let count = 1; count <= maxCount; count++) {
-            const characterDelay = delay + 100 * speed * count;
-            console.log(characterDelay);
+            const characterDelay = delay + 200 * speed * count;
+            console.log(characterDelay, i, count);
             setTimeout(() => {
-                let addedChar = i != text.length ? randomChar() : "";
+                let addedChar = randomChar();
+                if (i == text.length) {
+                    addedChar = "";
+                    target.classList.remove("in-progress");
+                }
                 target.innerHTML = text.substring(0, i) + addedChar;
             }, characterDelay);
         }
-        delay += 100 * speed * (maxCount - 1) * i;
+        delay += 200 * speed * maxCount;
     }
 }
 
@@ -176,6 +186,12 @@ function stringDifference(string1, string2){
 /* Event Listeners                                                         */
 /*=======================================================================*/
 
+function handleOnHoverAnimations(event) {
+    if (event.target.classList.contains("decode")) {
+        decode(event.target);
+    }
+}
+
 // Draws the back frame when the window loads and when the window is resized
 window.onload = () => {
     drawBackFrame();
@@ -187,3 +203,5 @@ window.onresize = () => {
     drawBackFrame();
     drawMenuFrame();
 }
+
+document.addEventListener("mouseover", handleOnHoverAnimations);
