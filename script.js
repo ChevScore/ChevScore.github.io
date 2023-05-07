@@ -117,6 +117,36 @@ function drawMenuFrame() {
 }
 
 /*===========================================================================*/
+/* Decode Effect                                                           */
+/*=======================================================================*/
+
+function decode(target) {
+    console.log("Decoding");
+    let text = target.innerHTML;
+    let maxCount = 3;
+    let count = 1;
+    let delay = 0;
+    let speed = 1 / text.length;
+
+    for (let i = 1; i <= text.length; i++) {
+        for (let count = 1; count <= maxCount; count++) {
+            const characterDelay = delay + 100 * speed * count;
+            console.log(characterDelay);
+            setTimeout(() => {
+                let addedChar = i != text.length ? randomChar() : "";
+                target.innerHTML = text.substring(0, i) + addedChar;
+            }, characterDelay);
+        }
+        delay += 100 * speed * (maxCount - 1) * i;
+    }
+}
+
+function randomChar() {
+    let chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!.,?";
+    return chars.charAt(Math.floor(Math.random() * chars.length));
+}
+
+/*===========================================================================*/
 /* General Functions                                                       */
 /*=======================================================================*/
 
@@ -128,6 +158,17 @@ function getWindowWidth() {
 // Returns the height of the window
 function getWindowHeight() {
     return window.innerHeight;
+}
+
+function stringDifference(string1, string2){ 
+    let difference = "";
+
+    string2.split('').forEach(function(value, i) {
+        if (value != string1.charAt(i))
+            difference += value;         
+        }
+    );
+    return difference;
 }
 
 
