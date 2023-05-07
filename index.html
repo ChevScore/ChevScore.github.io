@@ -8,7 +8,39 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <canvas id="back-frame" tit></canvas>
+    <canvas class="centre" id="back-frame"></canvas>
+    <menu class="no-select">
+        <canvas id="menu-frame"></canvas>
+        <button id="menu-holder" class="menu-holder" onclick="toggleMenu()">
+            <svg id="menu-button" class="menu-button" xmlns="http://www.w3.org/2000/svg" height="32" width="32" viewBox="0 0 48 48">
+                <g id="bottom">
+                    <rect y="39.79" width="48" height="6" rx="4.11" />
+                </g>
+                <g id="middle">
+                  <rect y="19.89" width="48" height="6" rx="4.11" />
+                </g>
+                <g id="top">
+                    <rect width="48" height="6" rx="4.11" />
+                  </g>
+            </svg>      
+        </button>
+        <nav>
+            <ul id="nav-links" class="uppercase">
+                <li><a href="">About</a></li>
+                <li><a href="">Portfolio</a></li>
+                <li><a href="">Contact</a></li>
+                <li><a href="">Resume</a></li>
+            </ul>
+        </nav>
+    </menu>
+    <main class="centre">
+        <div class="centre no-select">
+            <h1 class="uppercase greeting"><span class="smaller">Hi, I am </span>Muhammad</h1>
+            <h2 class="subheading">Software Engineer</h2>
+        </div>
+    </main>
+    <nav class="socials">
+    </nav>
     <script src="script.js"></script>
 </body>
 </html>
