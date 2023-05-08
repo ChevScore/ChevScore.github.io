@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 </head>
-<body>
+<body class="portfolio">
     <canvas class="centre" id="back-frame"></canvas>
     <menu class="no-select">
         <canvas id="menu-frame"></canvas>
@@ -36,14 +36,8 @@
         </nav>
     </menu>
     <main class="centre">
-        <div class="portfolio vertical-centre flex">
-            <div onscroll="return" class="portfolio-list">
-                <button onclick="return" class="clear-default portfolio-items"><h2>MagicScript</h2></button>
-                <button onclick="return" class="clear-default portfolio-items"><h2>Atlantis Sinks</h2></button>
-                <button onclick="return" class="clear-default portfolio-items"><h2>Floodit</h2></button>
-                <button onclick="return" class="clear-default portfolio-items"><h2>Atlantis Sinks</h2></button>
-                <button onclick="return" class="clear-default portfolio-items"><h2>MagicScript</h2></button>
-            </div>
+        <div class="portfolio-section vertical-centre flex">
+            <div id="portfolio-list" class="portfolio-list"></div>
             <img src="images/floodit-display-image.jpg" alt="" class="display-image">
         </div>
     </main>

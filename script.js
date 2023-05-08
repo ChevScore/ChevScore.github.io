@@ -1,4 +1,11 @@
 /*===========================================================================*/
+/* Global variables & constant                                             */
+/*=======================================================================*/
+let portfolioItems = null;
+let currentFocus = 0;
+
+
+/*===========================================================================*/
 /* Loading                                                                 */
 /*=======================================================================*/
 
@@ -194,6 +201,85 @@ function randomChar() {
 }
 
 /*===========================================================================*/
+/* Portfolio                                                               */
+/*=======================================================================*/
+
+async function parsePortfolioItemsJSON(location) {
+    let response = await fetch(location);
+    let data = await response.json();
+
+    return data;
+}
+
+async function setupPortfolio() {
+    let parsedPortfolioItems = await parsePortfolioItemsJSON("files\\assets\\json\\portfolio-items.json");
+    portfolioItems = [];
+    parsedPortfolioItems["items"].forEach(item => {
+        portfolioItems.push(new PortfolioItem(item));
+    });
+}
+
+async function displayPortfolio() {
+    if (portfolioItems == null) {
+        await setupPortfolio();
+    }
+
+    let portfolioList = document.getElementById("portfolio-list");
+
+    let items = getPortfolioDisplayItems();
+
+    for (let i = 0; i < items.length; i++) {
+        button = createPortfolioButton(items[i]);
+        portfolioList.appendChild(button);
+    }
+}
+
+function createPortfolioButton(item) {
+    let button = document.createElement("button");
+    button.classList.add("portfolio-item");
+    button.classList.add("clear-default");
+    let h2 = document.createElement("h2");
+    h2.innerText = item.name;
+    button.appendChild(h2);
+    return button;
+}
+
+function getPortfolioDisplayItems() {
+    let twoPreviousItem = portfolioItems[(portfolioItems.length - currentFocus - 2) % portfolioItems.length];
+    let previousItem = portfolioItems[(portfolioItems.length - currentFocus - 1) % portfolioItems.length];
+    let focusedItem = portfolioItems[currentFocus];
+    let nextItem = portfolioItems[(currentFocus + 1) % portfolioItems.length];
+    let twoNextItem = portfolioItems[(currentFocus + 2) % portfolioItems.length];
+
+    return [twoPreviousItem, previousItem, focusedItem, nextItem, twoNextItem];
+}
+
+function cycleNext() {
+    let portfolioList = document.getElementById("portfolio-list");
+
+    currentFocus = (currentFocus + 1) % portfolioItems.length;
+    let newNext = portfolioItems[(currentFocus + 2) % portfolioItems.length];
+
+    let button = createPortfolioButton(newNext);
+    let firstChild = portfolioList.firstChild;
+
+    firstChild.remove();
+    portfolioList.appendChild(button);
+}
+
+class PortfolioItem {
+    constructor(item) {
+        this.name = item["name"];
+        this.displayImage = item["display-image"];
+        this.displayImageAlt = item["display-image-alt"];
+        this.bannerImage = item["banner-image"];
+        this.bannerImageAlt = item["banner-image-alt"];
+        this.description = item["description"];
+    }
+}
+
+
+/*===========================================================================*/
 /* General Functions                                                       */
 /*=======================================================================*/
 
@@ -253,6 +339,9 @@ window.onload = () => {
     drawBackFrame();
     drawMenuFrame();
     createOverlay();
+    if (document.body.classList.contains("portfolio")) {
+        displayPortfolio();
+    }
 }
 
 window.onresize = () => {
