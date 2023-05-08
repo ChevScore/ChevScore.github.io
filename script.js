@@ -1,3 +1,14 @@
+const MENU_ITEMS = ($("nav ul li > a")).toArray();
+
+/*===========================================================================*/
+/* Loading                                                                 */
+/*=======================================================================*/
+
+function mainLoading() {
+    let main = document.getElementsByTagName("main")[0];
+    decodeSection(main, 500, true);
+}
+
 /*===========================================================================*/
 /* Menu                                                                    */
 /*=======================================================================*/
@@ -5,19 +16,33 @@
 function toggleMenu() {
     let menuButton = document.getElementById("menu-button");
     let navLinks = document.getElementById("nav-links");
+
+    menuLoading();
+    menuButton.classList.toggle("open");
+    navLinks.classList.toggle("open");
+    toggleMenuArtifacts();
+}
+
+function toggleMenuArtifacts() {
     let menuFrame = document.getElementById("menu-frame");
     let overlay = document.getElementById("overlay");
 
-    menuButton.classList.toggle("open");
-    navLinks.classList.toggle("open");
-    menuFrame.classList.toggle("open");
-    overlay.classList.toggle("open");
+    $(menuFrame).fadeToggle(250);
+    $(overlay).fadeToggle(250);
 }
 
 createOverlay = () => {
     let overlay = document.createElement("div");
     overlay.id = "overlay";
     document.body.appendChild(overlay);
+}
+
+function menuLoading() {
+    let menu = document.getElementsByTagName("menu")[0];
+    menu.classList.toggle("show");
+    if (menu.classList.contains("show")) {
+        decodeSection(menu, 100);
+    }
 }
 
 
@@ -120,37 +145,50 @@ function drawMenuFrame() {
 /* Decode Effect                                                           */
 /*=======================================================================*/
 
+// Decode effect which alters the text of the target element
 function decode(target) {
-    console.log("Decoding");
 
-    if (target.classList.contains("in-progress")) {
+    // If the target element is already being decoded, then return
+    if (target.classList.contains("decoded") 
+            || target.classList.contains("in-progress")) {
         return;
     }
 
+    // Add the in-progress class to the target element
     target.classList.add("in-progress");
 
+    // Sets up decoding effect
     let text = target.innerHTML;
+    target.innerHTML = text.substring(0, 1);
     let maxCount = 3;
-    let delay = 100;
+    let delay = 50;
     let speed = 1 / text.length;
 
+    // Decodes the text
     for (let i = 1; i <= text.length; i++) {
         for (let count = 1; count <= maxCount; count++) {
+            // The character delay is the delay of each character's decoding
             const characterDelay = delay + 200 * speed * count;
-            console.log(characterDelay, i, count);
             setTimeout(() => {
                 let addedChar = randomChar();
                 if (i == text.length) {
                     addedChar = "";
-                    target.classList.remove("in-progress");
                 }
                 target.innerHTML = text.substring(0, i) + addedChar;
             }, characterDelay);
         }
+        // The delay is the delay between each character being added to the
+        // target element
         delay += 200 * speed * maxCount;
     }
+
+    // Removes the in-progress class from the target element after the decoding
+    setTimeout(() => {
+        target.classList.remove("in-progress");
+    }, delay + 200 * speed * maxCount * text.length);
 }
 
+// Returns a random character
 function randomChar() {
     let chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!.,?";
     return chars.charAt(Math.floor(Math.random() * chars.length));
@@ -181,6 +219,24 @@ function stringDifference(string1, string2){
     return difference;
 }
 
+function decodeSection(section, delay, stop = false) {
+    let decodingElements = Array.from(section.getElementsByClassName("decode"));
+
+    decodingElements.forEach(element => {
+        element.classList.add("hidden");
+    });
+
+    for (let i = 0; i < decodingElements.length; i++) {
+        let element = decodingElements[i];
+        setTimeout(() => {
+            element.classList.remove("hidden");
+            decode(element);
+            if (stop) {
+                element.classList.add("decoded");
+            }
+        }, delay * i);
+    }
+}
 
 /*===========================================================================*/
 /* Event Listeners                                                         */
@@ -194,6 +250,7 @@ function handleOnHoverAnimations(event) {
 
 // Draws the back frame when the window loads and when the window is resized
 window.onload = () => {
+    mainLoading();
     drawBackFrame();
     drawMenuFrame();
     createOverlay();
