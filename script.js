@@ -1,5 +1,3 @@
-const MENU_ITEMS = ($("nav ul li > a")).toArray();
-
 /*===========================================================================*/
 /* Loading                                                                 */
 /*=======================================================================*/
@@ -136,7 +134,8 @@ function drawMenuFrame() {
     ctx.lineTo(windowWidth - offset, offset);
     ctx.lineTo(windowWidth - bridgeOffset, offset);
     ctx.lineTo(windowWidth - bridgeOffset - trimming, offset + trimming);
-    ctx.lineTo(windowWidth - bridgeOffset - bridgeLength, offset + trimming);
+    ctx.lineTo(windowWidth - bridgeOffset - bridgeLength + trimming, offset + trimming);
+    ctx.lineTo(windowWidth - bridgeOffset - bridgeLength, offset + 2 * trimming);
     ctx.closePath();
     ctx.fill();
 }
