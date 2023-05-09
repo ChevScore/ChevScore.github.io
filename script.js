@@ -71,7 +71,7 @@ function drawBackFrame() {
 
     // The trimming is the vertical and horizontal lengths of the edge 
     // trimming of the frame
-    let trimming = 40;
+    let trimming = 0.05 * windowWidth;
     
     // The bridgeOffset is the horizontal length from the top right corner of
     // the frame to the start of the bridge
@@ -121,8 +121,8 @@ function drawMenuFrame() {
 
     // The trimming is the vertical and horizontal lengths of the edge 
     // trimming of the frame
-    let trimming = 40;
-    
+    let trimming = 0.05 * windowWidth;    
+
     // The bridgeOffset is the horizontal length from the top right corner of
     // the frame to the start of the bridge
     let bridgeOffset = 0.15 * windowWidth + offset;
@@ -304,15 +304,23 @@ function recalibrateOnClickEvents() {
 }
 
 function updateFocusItemDisplay() {
-    let portfolioList = document.getElementById("portfolio-list");
-    let displayImageHolder = document.getElementById("display-image-holder");
+    let backgroundImageHolder = document.getElementById("background-image-holder");
+
+    console.log(portfolioItems[currentFocus].displayImage);
 
     let image = document.createElement("img");
+    image.classList.add("portfolio-display-image");
     image.src = portfolioItems[currentFocus].displayImage;
     image.alt = portfolioItems[currentFocus].displayImageAlt;
 
-    displayImageHolder.innerHTML = "";
-    displayImageHolder.appendChild(image);
+    image.onload = function() {
+        backgroundImageHolder.innerHTML = "";
+        backgroundImageHolder.appendChild(image);
+        setTimeout( () => {
+            image.style.opacity = "1";
+            image.stlye.filter = "brightness(0.5) blur(0px)";
+        }, 150);
+    }
 }
 
 class PortfolioItem {
@@ -404,3 +412,20 @@ window.onresize = () => {
 }
 
 document.addEventListener("mouseover", handleOnHoverAnimations);
+
+switch (document.body.classList[0]) {
+    case "portfolio":
+        document.onkeydown = function(event) {
+            console.log(event.key);
+            switch (event.key) {
+                case "ArrowUp":
+                    cyclePrevious();
+                    break;
+                case "ArrowDown":
+                    cycleNext();
+                    break;
+            }
+        }
+        break;
+}
+
