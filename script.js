@@ -168,7 +168,7 @@ function decode(target) {
     target.innerHTML = text.substring(0, 1);
     let maxCount = 3;
     let delay = 50;
-    let speed = 1 / text.length;
+    let speed = 1 / (2 * text.length);
 
     // Decodes the text
     for (let i = 1; i <= text.length; i++) {
@@ -232,6 +232,7 @@ async function displayPortfolio() {
         button = createPortfolioButton(items[i]);
         portfolioList.appendChild(button);
     }
+    recalibrateOnClickEvents();
 }
 
 function createPortfolioButton(item) {
@@ -265,6 +266,38 @@ function cycleNext() {
 
     firstChild.remove();
     portfolioList.appendChild(button);
+    recalibrateOnClickEvents();
+    decode(portfolioList.children[2].firstChild);
+}
+
+function cyclePrevious() {
+    let portfolioList = document.getElementById("portfolio-list");
+    
+    currentFocus = (portfolioItems.length + currentFocus - 1) % portfolioItems.length;
+    let newPrevious = portfolioItems[(portfolioItems.length + currentFocus - 2) % portfolioItems.length];
+    
+    let button = createPortfolioButton(newPrevious);
+    let lastChild = portfolioList.lastChild;
+
+    lastChild.remove();
+    portfolioList.insertBefore(button, portfolioList.firstChild);
+    recalibrateOnClickEvents();
+    decode(portfolioList.children[2].firstChild);
+}
+
+function recalibrateOnClickEvents() {
+    let portfolioList = document.getElementById("portfolio-list");
+    let portfolioItems = portfolioList.children;
+
+    for (let i = 0; i < portfolioItems.length; i++) {
+        portfolioItems[i].onclick = function() {
+            if (i < 2) {
+                cyclePrevious();
+            } else if (i >= 3) {
+                cycleNext();
+            }
+        }
+    }
 }
 
 class PortfolioItem {
@@ -334,14 +367,20 @@ function handleOnHoverAnimations(event) {
 }
 
 // Draws the back frame when the window loads and when the window is resized
-window.onload = () => {
-    mainLoading();
+window.onload = async () => {
+    let page = document.body.classList[0];
+
+    switch (page) {
+        case "home":
+            mainLoading();
+            break;
+        case "portfolio":
+            await displayPortfolio();
+            break;
+    }
     drawBackFrame();
     drawMenuFrame();
     createOverlay();
-    if (document.body.classList.contains("portfolio")) {
-        displayPortfolio();
-    }
 }
 
 window.onresize = () => {
