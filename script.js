@@ -233,6 +233,7 @@ async function displayPortfolio() {
         portfolioList.appendChild(button);
     }
     recalibrateOnClickEvents();
+    updateFocusItemDisplay();
 }
 
 function createPortfolioButton(item) {
@@ -267,6 +268,7 @@ function cycleNext() {
     firstChild.remove();
     portfolioList.appendChild(button);
     recalibrateOnClickEvents();
+    updateFocusItemDisplay();
     decode(portfolioList.children[2].firstChild);
 }
 
@@ -282,6 +284,7 @@ function cyclePrevious() {
     lastChild.remove();
     portfolioList.insertBefore(button, portfolioList.firstChild);
     recalibrateOnClickEvents();
+    updateFocusItemDisplay();
     decode(portfolioList.children[2].firstChild);
 }
 
@@ -298,6 +301,18 @@ function recalibrateOnClickEvents() {
             }
         }
     }
+}
+
+function updateFocusItemDisplay() {
+    let portfolioList = document.getElementById("portfolio-list");
+    let displayImageHolder = document.getElementById("display-image-holder");
+
+    let image = document.createElement("img");
+    image.src = portfolioItems[currentFocus].displayImage;
+    image.alt = portfolioItems[currentFocus].displayImageAlt;
+
+    displayImageHolder.innerHTML = "";
+    displayImageHolder.appendChild(image);
 }
 
 class PortfolioItem {

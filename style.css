@@ -219,9 +219,12 @@ h2.subheading::before {
 }
 
 .display-image {
-    width: 100%;
     flex: 0.4;
     cursor: pointer;
+}
+
+.display-image img {
+    max-width: 100%;
 }
 
 /*===========================================================================*/
