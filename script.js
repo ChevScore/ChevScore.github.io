@@ -296,6 +296,8 @@ function recalibrateOnClickEvents() {
         portfolioItems[i].onclick = function() {
             if (i < 2) {
                 cyclePrevious();
+            } else if (i == 2) {
+                openPortfolioItem();
             } else if (i >= 3) {
                 cycleNext();
             }
@@ -318,7 +320,6 @@ function updateFocusItemDisplay() {
         backgroundImageHolder.appendChild(image);
         setTimeout( () => {
             image.style.opacity = "1";
-            image.stlye.filter = "brightness(0.5) blur(0px)";
         }, 150);
     }
 }
@@ -334,6 +335,34 @@ class PortfolioItem {
     }
 }
 
+// Pop-up
+
+function openPortfolioItem() {
+    let portfolioItem = portfolioItems[currentFocus];
+
+    let popUp = document.getElementById("portfolio-item-display");
+    let banner = document.getElementById("banner");
+    let name = document.getElementById("name");
+    let description = document.getElementById("description");
+    
+    let image = document.createElement("img");
+    image.src = portfolioItem.bannerImage;
+    image.alt = portfolioItem.bannerImageAlt;
+
+    banner.innerHTML = "";
+    banner.appendChild(image);
+
+    name.innerText = portfolioItem.name;
+    description.innerText = portfolioItem.description;
+
+    $(popUp).fadeIn(500);
+}
+
+function closePortfolioItem() {
+    console.log("close");
+    let popUp = document.getElementById("portfolio-item-display");
+    $(popUp).fadeOut(500);
+}
 
 /*===========================================================================*/
 /* General Functions                                                       */
