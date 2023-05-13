@@ -353,7 +353,7 @@ function openPortfolioItem() {
     banner.appendChild(image);
 
     name.innerText = portfolioItem.name;
-    description.innerText = portfolioItem.description;
+    description.innerHTML = portfolioItem.description;
 
     $(popUp).fadeIn(500);
 }
