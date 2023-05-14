@@ -337,12 +337,12 @@ h2.subheading::before {
 /*=======================================================================*/
 
 .contact-area {
-    width: 80%;
-    height: 60%;
+    width: 100%;
+    height: 100%;
+    padding: 20vh 10vw 10vh 10vw;
 }
 
 form {
-    width: 50%;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -370,25 +370,24 @@ form > textarea {
     flex: 10;
 }
 
-form > .submit {
+.submit {
     cursor: pointer;
     transition: background-color 0.5s ease, color 0.5s ease;
 }
 
-form > .submit:hover {
+.submit:hover, .submit:focus, .submit:active {
     background-color: var(--grey);
     color: var(--dark-grey);
 }
 
 .contact-info {
     flex: 3;
+    height: 100%;
+    display: flex;
+    padding: 1vw;
 }
 
 /* Map SVG */
-
-.map-nav {
-    overflow: hidden;
-}
 
 #pointer {
     transform-origin: center;
@@ -448,34 +447,11 @@ form > .submit:hover {
 
 @media only screen and (max-width: 500px) {
     .contact-area {
-        padding: 10vh 0;
         flex-direction: column-reverse;
+    }
+
+    .contact-info, form {
         width: 100%;
-        height: 100%;
-    }
-
-    form {
-        width: 100%;
-        height: 50%;
-        padding: 20vh 10vw;
-    }
-
-    form > * {
-        margin-bottom: 0.5rem;
-    }
-
-    form > input {
-        flex: 1;
-    }
-
-    form > textarea {
-        flex: 2;
-    }
-
-    .contact-info {
-        width: 100%;
-        height: 50%;
-        flex: 1;
     }
 }
 
