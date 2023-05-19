@@ -191,11 +191,131 @@ h2.subheading::before {
 }
 
 /*===========================================================================*/
-/* PORTFOLIO.HTML                                                          */
+/* ABOUT.HTML                                                              */
 /*=======================================================================*/
 
-.portfolio-section {
+.about-container {
+    /* border: solid 0.5px var(--grey); */
+    width: calc(100% - 50px);
+    height: calc((100vh - 10vw - 50px));
+    display: flex;
+    flex-direction: row;
 }
+
+.about-content {
+    height: 100%;
+    flex: 5;
+    position: relative;
+}
+
+.about-content > p {
+    height: 80%;
+    margin: 20px;
+    padding: 20px;
+    background-color: #202020;
+    overflow: scroll;
+}
+
+.about-content > .toggle-buttons {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin-right: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+}
+
+.toggle-buttons > button {
+    text-transform: uppercase;
+    width: 100px;
+    margin: 2px 10px;
+    background-color: #363636;
+    color: var(--white);
+    font-family: var(--main-font);
+    font-weight: bold;
+    font-size: calc(0.5vw + 0.5rem);
+    cursor: pointer;
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+.toggle-buttons > button:hover,
+.toggle-buttons > button:focus,
+.toggle-buttons > button.active {
+    background-color: var(--white);
+    color: var(--background);
+}
+
+.about-image {
+    height: 100%;
+    flex: 3;
+    justify-content: center;
+    display: flex;
+    justify-content: center;
+    filter: grayscale(0.9);
+}
+
+.about-image > img {
+    max-width: 100%;
+    max-height: 100%;
+    display: block;
+}
+
+.about-image > #image-effect {
+    mix-blend-mode: difference;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0.5;
+    transition: opacity 0.5s ease;
+    word-wrap: break-word;
+    letter-spacing: 0.5rem;
+    font-size: 1vw;
+    overflow: hidden;
+    color: var(--background);
+    user-select: none;
+}
+
+.stats {
+    margin: 20px;
+    padding: 20px;
+    background-color: #202020;
+    height: 80%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    justify-items: center;
+    align-items: center;
+}
+
+.stats > .data {
+    height: fit-content;
+    width: fit-content;
+    position: relative;
+}
+
+.stats > .data  {
+    opacity: 0.4;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.stats > .data:hover {
+    opacity: 1;
+    transform: scale(1.5);
+}
+
+.stats > .data > h2 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 0.8vw;
+    color: var(--grey);
+}
+
+/*===========================================================================*/
+/* PORTFOLIO.HTML                                                          */
+/*=======================================================================*/
 
 .portfolio-list {
     position: fixed;
@@ -227,11 +347,13 @@ h2.subheading::before {
     opacity: 1;
 }
 
-.portfolio-list button:nth-child(2) > h2, .portfolio-list button:nth-child(4) > h2 {
+.portfolio-list button:nth-child(2) > h2, 
+.portfolio-list button:nth-child(4) > h2 {
     opacity: 0.2;
 }
 
-.portfolio-list button:nth-child(1) > h2, .portfolio-list button:nth-child(5) > h2 {
+.portfolio-list button:nth-child(1) > h2, 
+.portfolio-list button:nth-child(5) > h2 {
     opacity: 0.05;
 }
 
@@ -381,6 +503,7 @@ form > textarea {
 }
 
 .contact-info {
+    display: flex;
     flex: 3;
     height: 100%;
     display: flex;
@@ -410,7 +533,7 @@ form > textarea {
 
 #second-circle {
     transform-origin: center;
-    animation: grow 3s linear infinite 0.5s;
+    animation: grow 3s linear infinite 1s;
 }
 
 @keyframes rotate {
@@ -450,8 +573,14 @@ form > textarea {
         flex-direction: column-reverse;
     }
 
+    .nav-map {
+        height: 100%;
+    }
+
     .contact-info, form {
+        justify-content: center;
         width: 100%;
+        height: 50%;
     }
 }
 
@@ -483,6 +612,10 @@ form > textarea {
 
 .hidden {
     visibility: hidden;
+}
+
+.no-display {
+    display: none;
 }
 
 .flex {

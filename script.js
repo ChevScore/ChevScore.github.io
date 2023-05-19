@@ -201,18 +201,116 @@ function randomChar() {
 }
 
 /*===========================================================================*/
+/* About                                                                   */
+/*=======================================================================*/
+
+function setupAboutImageEffect() {
+    let imageEffect = document.getElementById("image-effect");
+
+    const maxCharacters = 1000;
+    let characters = "";
+
+    for (let i = 0; i < maxCharacters; i++) {
+        characters += randomChar();
+    }
+
+    imageEffect.innerHTML = characters;
+    setInterval(() => {
+        cycleText(imageEffect);
+    }, 100);
+}
+
+function cycleText(target) {
+    let text = target.innerHTML;
+    let length = text.length;
+    let newText = text.substring(1, length) + text.substring(0, 1);
+    target.innerHTML = newText;
+}
+
+// Radial Circular Slider
+
+async function drawRadialSliders() {
+    let statsData = await parseJSON("files\\assets\\json\\stats.json");
+    let stats = document.getElementById("stats");
+
+    stats.innerHTML = "";
+
+    statsData["items"].forEach((element) => {
+        let name = element.name;
+        let percentage = element.percentage;
+
+        let data = document.createElement("div");
+        let dataName = document.createElement("h2");
+
+        data.classList.add("data");
+
+        dataName.innerHTML = name;
+        
+        data.appendChild(createRadialSlider(percentage));
+        data.appendChild(dataName);
+
+        data.title = name + ": " + Math.round(percentage * 100) + "%";
+        stats.appendChild(data);
+    });
+}
+
+function createRadialSlider(percentage) {
+    let canvas = document.createElement("canvas");
+    let ctx = canvas.getContext("2d");
+    
+    let windowWidth = getWindowWidth();
+    let windowHeight = getWindowHeight();
+
+    let width = 0.15 * windowWidth;
+    let height = 0.15 * windowHeight;
+
+    let thickness = Math.min(0.1 * width, 0.1 * height);
+    let radius = Math.min(0.5 * width, 0.5 * height) - thickness;
+
+    canvas.width = width;
+    canvas.height = height;
+
+    let x = 0.5 * width;
+    let y = 0.5 * height;
+
+    ctx.lineWidth = thickness + 10;
+    ctx.strokeStyle = "#11111155";
+
+    ctx.beginPath();
+    ctx.arc(x, y, radius, 0, 2 * Math.PI);
+    ctx.stroke();
+
+    ctx.lineWidth = thickness;
+    ctx.strokeStyle = "#ccf";
+
+    ctx.beginPath();
+    ctx.arc(x, y, radius, 1.5 * Math.PI, 2 * Math.PI * percentage - 0.5 * Math.PI);
+    ctx.stroke();
+
+    return canvas;
+}
+
+// Toggle Buttons
+
+function toggleButton(button) {
+    if (!button.classList.contains("active")) {
+        $("#bio-button").toggleClass("active");
+        $("#stats-button").toggleClass("active");
+        toggleView();
+    }
+}
+
+function toggleView() {
+    $("#bio").toggle();
+    $("#stats").toggle();
+}
+
+/*===========================================================================*/
 /* Portfolio                                                               */
 /*=======================================================================*/
 
-async function parsePortfolioItemsJSON(location) {
-    let response = await fetch(location);
-    let data = await response.json();
-
-    return data;
-}
-
 async function setupPortfolio() {
-    let parsedPortfolioItems = await parsePortfolioItemsJSON("files\\assets\\json\\portfolio-items.json");
+    let parsedPortfolioItems = await parseJSON("files\\assets\\json\\portfolio-items.json");
     portfolioItems = [];
     parsedPortfolioItems["items"].forEach(item => {
         portfolioItems.push(new PortfolioItem(item));
@@ -378,6 +476,13 @@ function getWindowHeight() {
     return window.innerHeight;
 }
 
+async function parseJSON(location) {
+    let response = await fetch(location);
+    let data = await response.json();
+
+    return data;
+}
+
 function stringDifference(string1, string2){ 
     let difference = "";
 
@@ -418,13 +523,18 @@ function handleOnHoverAnimations(event) {
     }
 }
 
+let page;
+
 // Draws the back frame when the window loads and when the window is resized
 window.onload = async () => {
-    let page = document.body.classList[0];
-
+    page = document.body.classList[0];
     switch (page) {
         case "home":
             mainLoading();
+            break;
+        case "about":
+            setupAboutImageEffect();
+            await drawRadialSliders();
             break;
         case "portfolio":
             await displayPortfolio();
@@ -436,6 +546,11 @@ window.onload = async () => {
 }
 
 window.onresize = () => {
+    switch (page) {
+        case "about":
+            drawRadialSliders();
+            break;
+    }
     drawBackFrame();
     drawMenuFrame();
 }

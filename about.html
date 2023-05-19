@@ -59,6 +59,20 @@
     </menu>
     <main class="centre">
         <h1>About</h1>
+        <div class="about-container centre">
+            <div class="about-content">
+                <p id="bio"></p>
+                <div class="stats" id="stats" style="display: none;"></div>
+                <div class="toggle-buttons">
+                    <button id="stats-button" class="clear-default" onclick="toggleButton(this)">Stats</button>
+                    <button id="bio-button" class="clear-default active" onclick="toggleButton(this)">Bio</button>
+                </div>
+            </div>
+            <div class="about-image">
+                <div id="image-effect"></div>
+                <img src="images/about-image.png" alt="Picture of me">
+            </div>
+        </div>
     </main>
     <nav class="socials">
     </nav>
