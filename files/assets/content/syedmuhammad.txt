@@ -1,0 +1,7 @@
+<h2>Inspiration</h2>
+<p>Inspired by cyberpunk themed games, technologies and interaction, I set out to create my own portfolio resume website in that theme. I wanted to create something that is simple, memorable and resonates the style of interaction with a futuristic HUD.</p>
+
+<h2>Conceptual Design & Prototyping</h2>
+<p>The prototyping process involved handsketches as well as high-fidelity development of the website which I had done using Figma. This process had made me gain more expertise and confidense with the tool. To see the original HFP on Figma, you can view it <a href="https://www.figma.com/file/P1Z2TiNURL2ygGexs1V27a/DECO1400-Wireframes-%26-HFP?type=design&node-id=0%3A1&t=KIDhjsXkaCBojfQ8-1" target="_blank">here</a>.</p>
+
+<p>There was a pivot in the design from the high-fidelity prototype to the actual implementaion in pure HTML, CSS and js (Note this was the requirement as part of the course I made this website with. I would also much rather make this with a framework -_-). This change was justified by ease-of-implementation and accessibility concerns. The prototype designs had minimal contrast between text and background, thus the background image was removed completely.</p>

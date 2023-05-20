@@ -9,6 +9,7 @@ let currentFocus = 0;
 /* Loading                                                                 */
 /*=======================================================================*/
 
+// Loading effect which alters the text of the target element
 function mainLoading() {
     let main = document.getElementsByTagName("main")[0];
     decodeSection(main, 500, true);
@@ -18,6 +19,7 @@ function mainLoading() {
 /* Menu                                                                    */
 /*=======================================================================*/
 
+// Toggles the menu
 function toggleMenu() {
     let menuButton = document.getElementById("menu-button");
     let navLinks = document.getElementById("nav-links");
@@ -28,6 +30,7 @@ function toggleMenu() {
     toggleMenuArtifacts();
 }
 
+// Toggles the menu artifacts
 function toggleMenuArtifacts() {
     let menuFrame = document.getElementById("menu-frame");
     let overlay = document.getElementById("overlay");
@@ -42,6 +45,7 @@ createOverlay = () => {
     document.body.appendChild(overlay);
 }
 
+// Loading effect which alters the text of the target element
 function menuLoading() {
     let menu = document.getElementsByTagName("menu")[0];
     menu.classList.toggle("show");
@@ -55,6 +59,7 @@ function menuLoading() {
 /* Main Frame                                                              */
 /*=======================================================================*/
 
+// Draws the back frame
 function drawBackFrame() {
     let windowHeight = getWindowHeight();
     let windowWidth = getWindowWidth();
@@ -105,6 +110,7 @@ function drawBackFrame() {
 /* Menu Frame                                                              */
 /*=======================================================================*/
 
+// Draws the menu frame
 function drawMenuFrame() {
     let windowHeight = getWindowHeight();
     let windowWidth = getWindowWidth();
@@ -204,6 +210,7 @@ function randomChar() {
 /* About                                                                   */
 /*=======================================================================*/
 
+// Image Effect
 function setupAboutImageEffect() {
     let imageEffect = document.getElementById("image-effect");
 
@@ -228,7 +235,6 @@ function cycleText(target) {
 }
 
 // Radial Circular Slider
-
 async function drawRadialSliders() {
     let statsData = await parseJSON("files\\assets\\json\\stats.json");
     let stats = document.getElementById("stats");
@@ -254,6 +260,7 @@ async function drawRadialSliders() {
     });
 }
 
+// Creates a radial slider given a percentage
 function createRadialSlider(percentage) {
     let canvas = document.createElement("canvas");
     let ctx = canvas.getContext("2d");
@@ -291,7 +298,6 @@ function createRadialSlider(percentage) {
 }
 
 // Toggle Buttons
-
 function toggleButton(button) {
     if (!button.classList.contains("active")) {
         $("#bio-button").toggleClass("active");
@@ -300,6 +306,7 @@ function toggleButton(button) {
     }
 }
 
+// Toggle View
 function toggleView() {
     $("#bio").toggle();
     $("#stats").toggle();
@@ -309,6 +316,7 @@ function toggleView() {
 /* Portfolio                                                               */
 /*=======================================================================*/
 
+// Sets up the portfolio items
 async function setupPortfolio() {
     let parsedPortfolioItems = await parseJSON("files\\assets\\json\\portfolio-items.json");
     portfolioItems = [];
@@ -317,6 +325,7 @@ async function setupPortfolio() {
     });
 }
 
+// Displays the portfolio items
 async function displayPortfolio() {
     if (portfolioItems == null) {
         await setupPortfolio();
@@ -334,6 +343,7 @@ async function displayPortfolio() {
     updateFocusItemDisplay();
 }
 
+// Creates a portfolio button
 function createPortfolioButton(item) {
     let button = document.createElement("button");
     button.classList.add("portfolio-item");
@@ -344,6 +354,7 @@ function createPortfolioButton(item) {
     return button;
 }
 
+// Returns the portfolio items to be displayed in a specific order
 function getPortfolioDisplayItems() {
     let twoPreviousItem = portfolioItems[(portfolioItems.length - currentFocus - 2) % portfolioItems.length];
     let previousItem = portfolioItems[(portfolioItems.length - currentFocus - 1) % portfolioItems.length];
@@ -354,6 +365,7 @@ function getPortfolioDisplayItems() {
     return [twoPreviousItem, previousItem, focusedItem, nextItem, twoNextItem];
 }
 
+// Cycles the portfolio items
 function cycleNext() {
     let portfolioList = document.getElementById("portfolio-list");
 
@@ -370,6 +382,7 @@ function cycleNext() {
     decode(portfolioList.children[2].firstChild);
 }
 
+// Cycles the portfolio items
 function cyclePrevious() {
     let portfolioList = document.getElementById("portfolio-list");
     
@@ -386,6 +399,7 @@ function cyclePrevious() {
     decode(portfolioList.children[2].firstChild);
 }
 
+// Recalibrates the onclick events of the portfolio items
 function recalibrateOnClickEvents() {
     let portfolioList = document.getElementById("portfolio-list");
     let portfolioItems = portfolioList.children;
@@ -403,6 +417,7 @@ function recalibrateOnClickEvents() {
     }
 }
 
+// Updates the focus item display
 function updateFocusItemDisplay() {
     let backgroundImageHolder = document.getElementById("background-image-holder");
 
@@ -422,6 +437,7 @@ function updateFocusItemDisplay() {
     }
 }
 
+// Portfolio Item Class
 class PortfolioItem {
     constructor(item) {
         this.name = item["name"];
@@ -435,6 +451,7 @@ class PortfolioItem {
 
 // Pop-up
 
+// Opens the portfolio item
 function openPortfolioItem() {
     let portfolioItem = portfolioItems[currentFocus];
 
@@ -443,6 +460,11 @@ function openPortfolioItem() {
     let name = document.getElementById("name");
     let description = document.getElementById("description");
     
+    let descriptionLocation = portfolioItem.description;
+    fetch(descriptionLocation)
+        .then(response => response.text())
+        .then(text => description.innerHTML = text)
+
     let image = document.createElement("img");
     image.src = portfolioItem.bannerImage;
     image.alt = portfolioItem.bannerImageAlt;
@@ -451,15 +473,17 @@ function openPortfolioItem() {
     banner.appendChild(image);
 
     name.innerText = portfolioItem.name;
-    description.innerHTML = portfolioItem.description;
 
     $(popUp).fadeIn(500);
+    decodeSection(popUp, 100, stop = true);
 }
 
+// Closes the portfolio item
 function closePortfolioItem() {
     console.log("close");
     let popUp = document.getElementById("portfolio-item-display");
     $(popUp).fadeOut(500);
+    $("#name").removeClass("decoded");
 }
 
 /*===========================================================================*/
@@ -476,6 +500,7 @@ function getWindowHeight() {
     return window.innerHeight;
 }
 
+// Parses a JSON file given a location
 async function parseJSON(location) {
     let response = await fetch(location);
     let data = await response.json();
@@ -483,6 +508,7 @@ async function parseJSON(location) {
     return data;
 }
 
+// Returns the difference between two strings
 function stringDifference(string1, string2){ 
     let difference = "";
 
@@ -494,6 +520,7 @@ function stringDifference(string1, string2){
     return difference;
 }
 
+// Decodes a section
 function decodeSection(section, delay, stop = false) {
     let decodingElements = Array.from(section.getElementsByClassName("decode"));
 
@@ -572,4 +599,3 @@ switch (document.body.classList[0]) {
         }
         break;
 }
-

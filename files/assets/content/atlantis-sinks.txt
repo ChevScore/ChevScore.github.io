@@ -1,0 +1,89 @@
+<h2>Introduction</h2>
+<h3>Synopsis</h3>
+<p>Atlantis, a prospering city powered by an ancient crystal, Ilios. Ilios was a gift from the gods themselves, a source of eternal power and resources. After enjoying 200 years of peace, a power-hungry enemy has emerged and is trying to take the crystal and its power for himself, resulting in the ultimate demise of Atlantis and its people. The monster goes by many names, some call him Typhon. Typhon was known to be a descendant of the royal bloodline exiled from Atlantis after committing multiple heinous crimes against its people and his greed to rule Atlantis under a redefined world order. Typhon's power-hungry mind and desire to rule drove him mad as he turned on his people and attempted to steal the crystal. A noble hero emerged, Chiron, and managed to drive Typhon and his pirate crabs out. As Typhon was unsuccessful in his endeavour the first time, he sought out allies to aid him on his quest to conquer Atlantis. Thus, he formed an alliance with the electric eels, creatures that were banished into the sea by the gods themselves and a common enemy to the Atlantians. With the help of his pirate crabs and the eels, he now commands a force powerful enough to mount an attack on the city. Each night, the monsters come out and attempt to breach the walls of Atlantis and get past the tower defences and traps set up by Chiros. They come back every night hoping to reach the crystal and wipe out civilization as we know it. The Atlantians fear the full moon day when Typhon and his army reach their full strength and capabilities. The dreaded night is creeping closer and closer as the full moon strikes in 4 more days.</p>
+<h3>Purpose</h3>
+<p>As Chiron, you play as the restorer of Atlantis in a base-builder and defender style game. The goal is to survive the 4 days and nights and deefat the final boss. You must work to secure you base by efficiently setting up defences and using gather materials from building and mobs effectively. </p>
+
+<h2>1.0	Individual Work</h2>
+<h3>1.1		Overview</h3>
+<p>Working in a team of mainly designers, I found myself involved with various parts of the game, having an equal share of design and programming work. My contribution to the project this entire semester has been consistent as seen in Figure 1 below. Even when I worked as a designer, I would be constantly adding, removing, and updating both the original source and exported designs to GitHub.</p>
+
+<figure>
+    <img src="images/atlantis-sinks-github.png"></img>
+    <figcaption>Figure 1: GitHub contributions made to the studio repository since the beginning of Semester</figcaption>
+</figure>
+
+<p>Our team’s focus had been changing, with a new feature that would be completed by the end of the sprint, rather than a single feature developed over entirety of the course. I have chosen to discuss and reflect upon my contributions to UI Interface (Sprint 1) and Guidebook (Sprint 3) work.</p>
+
+<h3>1.2		UI Interface (Buttons & Icons)</h3>
+<p>In Sprint 1, our team unanimously decided to take on the UI Interface as our primary feature ticket as we all had significant design experience. Our feature ticket entailed the development of interfaces across both the main menu and game screen which is consistent with the proposed design guidelines (Refer to Development of the Design Guidelines  for justification on the following work) and game style voted by the Studio. My work has been described in detail in the following sections.</p>
+<p>One of my main tasks in Sprint 1 was to design and develop buttons, icons and other assets surrounding the UI. Inspired by the simplicity of 8-bit style game controls and buttons and icons found in certain mobile detailed pixelated games like Soul Knight and Clash of Clans (Refer to Development of the Design Guidelines), I developed the following using Pixilart, as shown in Figure 2 below. </p>
+
+<figure>
+    <img src="images/atlantis-sinks-artboard-sprint1.png"></img>
+    <figcaption>Figure 2: Artboard of all the buttons and icons created in Sprint 1</figcaption>
+</figure>
+
+<p>Care was taken when designing these buttons to ensure that the above existing buttons are easily modifiable in terms of colour and the inside icon. The process also ensures that any future buttons and icons will be designed in this manner for both design consistency and replicability. While our wiki details the process in which the buttons were developed, a visual summary is illustrated in Figure 3 below.</p>
+
+<figure>
+    <img src="images/atlantis-sinks-buttons-process.png"></img>
+    <figcaption>Figure 3: Schematic of the process used to replicate the buttons made</figcaption>
+</figure>
+
+<h3>1.3	Guidebook</h3>
+<p>In Sprint 3, our team had decided to work on developing a game guidebook – a manual which contains information such as controls, icon meanings, etc., for players to read before starting the game. In this Sprint, I took both a designer and programmer role, designing the guidebook assets as well as creating the guidebook display and implementing animations for the guidebook.</p>
+<h4>1.3.1 Designing the Guidebook</h4>
+<p>After user testing on multiple low-fidelity prototypes – designed by another teammate – I was tasked to take the proof of concept, digitise, and further develop the designs of the guidebook and its animation states (Refer to Figure 4, below). Using Pixilart’s GIF FRAMES tool, I was able to design and test my animations to ensure the animations works well before implementation. </p>
+ 
+<figure>
+    <img src="images/atlantis-sinks-guidebook-designs.png"></img>
+    <figcaption>Figure 4: Assets for the Guidebook displayed. Top: closed book, half-open, full open. Bottom: next page flip, open book, previous page flip</figcaption>
+</figure>
+
+<h4>1.3.2		Implementing the Guidebook</h4>
+<p>After designing the individual screens on Pixilart and exporting them, my next task was the implementation of content (headings, body text and images) onto each of the guidebook pages. At this stage in the Semester, this was the first time I was independently working upon the implementation of teamwork in code, and so after much research and reading on Tables and Screens in libgdx, I managed to display the Guidebook page with filler content and play around with padding and positioning. </p>
+<p>The next challenge was getting the filler content to correctly format depending on the screen size and the number of characters allowed per line on the page. I then created a TextUtil class with the lineFormat method which correctly formats given text with a specified max number of characters per line. I determined that this function would be useful and noticed that other teams were trying similar ways to implement the same functionality. Having it as a separate class meant that other Studio peers can place their text processing functions in this class to reduce duplicity of code. </p>
+<p>From my other teammate’s developed Guidebook content, I created a parser which parses a correctly formatted .json file into an array of Pages, each having an optional header, body text and optional image and image location tag. This was achieved through an external library which I loaded into the game, called Gson.  Once the content is parsed, it can be rendered directly onto the current page, as shown below in Figure 5.</p>
+
+<figure>
+    <img src="images/atlantis-sinks-guidebook-with-content.png"></img>
+    <figcaption>Figure 5: Guidebook with loaded in content</figcaption>
+</figure>
+
+<p>Additionally, I ensured that screen resizing would resize the elements on the Guidebook respectively. Unfortunately, while many other screens (i.e., the shop) were not made to be dynamically sized, the Guidebook screen is one of the only ones that achieves this. This considers the users and their devices which have varying resolutions and aspect ratios, catering for which demonstrates good design and programming practices. This learning process helped me to fix the main menu screen in Sprint 4 and ensure it is responsive too in the same way.</p>
+
+<h3>1.4		Individual Reflection</h3>
+<p>Having opportunities in both design and programming, I have certainly learnt a lot from my experiences this Semester. I have gained several soft skills, such as effective teamwork, project management, cross-team collaboration as well as developing my own interpersonal communication skills.</p>
+<p>In Sprint 1, I took on a designer role, even while I have the strongest programming skills in my team, primarily because initially I was overwhelmed by the fact that we were learning a new game development application framework and because I was not confident with Java. Consequently, when I took the programmer role in Sprint 2, our team underachieved our set goals and expectations due to my limited knowledge of libgdx and unwillingness to learn about the framework in Sprint 1. The disappointment in myself forced me in Sprint 3 and 4 to take more programming initiative, researching and attending programming collaborative session organised in the Studio, to pick up the required skills. </p>
+<p>An area I would like to improve upon is my risk taking and implementation of newly learnt skills. Most of the semester – due to fear of lack of contribution in my team – I would take on many of tasks which I was already confident with and would work well within my comfort zone. While this ensured high quality and quick delivery of work, it also meant that I didn’t make the most out of the course and the content it taught us, i.e., Mockito, UML and Sequence Diagrams. Often the best way to hone a skill is to practically apply it as soon as it is taught. </p>
+<p>Coming into the course, I had greater expectations for the game being developed, and wanted to achieve something significant as a studio. However, this was something I understood to be extremely difficult as for majority of the Semester, many teams including mine, would prefer to work independently with little to no cross-team collaboration. This meant that, in both the design and programming side, I witnessed no cohesion of work. This led to me taking the initiative to create Design Guidelines with my team and form the UI/UX Committee. While I believe I have worked effectively in my own team, I have found that I participated in Studio-wide interaction very late into the Semester. If I were to retake this course, I would ensure that UI/UX Committee is formed right at the start, with clear goals and objectives and as a means for designers like me to ask and provide feedback to other designers based on objective guidelines. </p>
+
+<h2>2.0	Teamwork</h2>
+<h3>2.1		Methodology</h3>
+<p>My team had followed a consistent and mostly effective approach to each Sprint that ensured work accountability, cohesion, and integration. Figure 6, below, is a diagram depicting the start to finish process me and my team followed to completion of a feature in the game. </p>
+
+<figure>
+    <img src="images/atlantis-sinks-sprint-plan-structure.png"></img>
+    <figcaption>Figure 6: Process followed by the team from start till end of Sprint</figcaption>
+</figure>
+
+<p>Since as a team we picked up a new feature each Sprint, we would start each Sprint by listing several tasks that could strand out from the chosen feature and complete them over the course of the Sprint after allocation and setting deadlines right away. This got the entire team involved in the planning of Sprint, setting expectations of work and the scope of the Sprint. Prototyping and initial user testing was always completed right at the start, leaving the finalisation and implementation of designs in the tailing end of the Sprint. </p>
+<p>There was consistent and frequent communication between us through Discord and Facebook Messenger with bi-weekly meetings for progress checking and the method ensured healthy communication on tasks and their progress.</p>
+
+<h3>2.2		Studio Interactions & Collaboration</h3>
+<h4>2.2.1		Development of the Design Guidelines</h4>
+<p>An important initiative started by my team was the development of the initial Design Guidelines in Sprint 1. It was felt that there was no real conversation about the exact style and specifics of the game – which is required to ensure design cohesion in the game. Having the initial document structure laid out for other Studio members to contribute to meant that the development of this was a huge success. It had sparked the required conversation and many members of the Studio commended the efforts made to break the ice. </p>
+<h4>2.2.2		Initiation of the UI/UX Committee</h4>
+<p>Although the guidelines had been developed, there was still the issue of design consistency and cohesion as every team member took a separate interpretation of the guidelines and modified it to suit the designs of their team with their own independent user testing. At the end of Sprint 3, the differences in the style of different elements in the game were apparent and thus immediate attention was needed to rectify it. In Sprint 4, I gathered all the designers from across all teams to form a committee to rectify the issue of design cohesion (Refer to Figure 7, below). This was achieved by flagging designs which seemed out of place and revisiting the guidelines proposed at the start of Sprint 1. Designers would be notified of these issues and changes would be made accordingly.</p>
+
+<figure>
+    <img src="images/atlantis-sinks-screenshots-discord.png"></img>
+    <figcaption>Figure 7: Discord screenshots demonstrating Studio-wide contributions regarding the UI/UX Committee</figcaption>
+</figure>
+
+<h3>2.3		Teamwork Reflection</h3>
+<p>Overall, I am quite happy with the quantity and quality of the work my team has achieved, creating features that we believe had contributed significantly to the look and feel of the game. While our team dynamic had demonstrated success, there were issues in the start of Semester.</p>
+<p>In Sprint 1, we set up grander expectations in terms of achievement and listed each task many of which were not allocated to any person. This meant that many of the task tickets we chose, like typography, and many of the screen pop-ups, were tasks not actualised due to time constraints and poor work allocation and planning. This caused uneven work accomplishment per teammate as some team members would take on more tasks than others. Certain team members felt as though too much was asked for in the Sprint and that we bit off more than what could chew. As a result, we ensured in future sprints that tasks be correctly labelled and assigned right from the start with meetings in appropriate times during the Sprint for progress checking and redistribution or reassignment of tasks. Tasks would be assigned, and a prioritised list of future tasks would be made just in case a team member would finish their task much earlier in the Sprint. </p>
+<p>Another issue which I felt was that there was another team member who had both design and programming experience, however the entire Semester they did not contribute much to programming. I didn’t want to raise this issue as it could cause “bad blood” and disrupt the already well functioning team dynamic; however, upon reflection, I believe that this should have been addressed to get the most out of our Sprint achievements. In Sprint 3, I was the only programmer and in a team of 4, there was a lot of code work that could have well been distributed between us, especially when I contributed both design- and programming-wise.</p>
+<p>If we were to restart this course, it would be crucial to begin by understanding each other’s skillsets and to assign certain tasks – which require certain skills – to the right person. This shouldn’t prevent others to task on those tasks but instead should be a safety net of sorts that allows team members to learn a new skill while there is someone that can also do the same task. </p>

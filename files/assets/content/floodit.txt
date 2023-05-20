@@ -1,0 +1,45 @@
+<h2>1.0	Introduction</h2>
+<h3>1.1	Context</h3>
+<p>Floodit is a 3-D flood simulation and visualisation tool that provides a 3-D visualisation and narrative experience enabling users to understand and reflect upon the risks of flooding in Brisbane. With the aim to immerse users in this educational and explorative experience, Floodit offers two modes of playability: (a) Creative mode – an observer sand-box experience allowing users to manipulate the flood and overlook its effects on different parts of Saint Lucia; and (b) Player mode – a narrative experience where users get to a refuge point avoiding the flood, allowing them to appreciate the difficulties of navigating a flooded Brisbane. </p>
+
+<figure>
+    <video controls>
+        <source src="files/assets/videos/final_kickstarter_floodit.mp4" />
+        <source src="https://youtu.be/i9gfEuKHlxw" />
+    </video>
+    <figcaption>Figure 1: Kickstarter Video of the Final Prototype Solution</figcaption>
+</figure>
+
+<h3>1.2	Overview of Individual Contributions</h3>
+<p>Due to the evolution of the project scope and goals throughout the Semester, my role and contributions to the group project have changed accordingly - from the lead developer of the inundation algorithm to the development of Floodit’s logo, assets from the application, as well as the low- to medium-fidelity prototypes (Refer to Figure 2 below) to the development of the Kickstarter video (Refer to Figure 1 above).</p>
+
+<figure>
+    <img src="images/floodit-mfp.png"></img>
+    <figcaption>Figure 2: Sample of Medium-Fidelity Prototype created</figcaption>
+</figure>
+
+<h2>2.0	Team Project Management</h3>
+<h3>2.1	Project Management</h3>
+<p>Since the very beginning of the Semester, project goals and features were defined, and a project timeline was created as means of tracking progress and determining resource allocation (i.e., time and number of teammates working on a task). This timeline changed several times during the Semester. To manage the project’s direction and progress, bi-weekly meetings would be called to discuss the completed, in-progress and future tasks. </p>
+<h3>2.2	Accountability</h3>
+<p>To ensure accountability of work, tasks were broken down into smaller subtasks during a team meeting. Meeting logs with agendas and assigned work would be created with expectations of work to be completed by the set time and date.</p>
+<h3>2.3	Reflection of Team Project</h3>
+<p>Upon reflection on how the project was managed in our team, several issues become apparent. Firstly, utilising meetings as the only means of work allocation, accountability and projection direction is problematic as: (i) the meeting logs were not always available and accessible and would often a time get lost in the Messenger group chat, and (ii) work allocation and accountability was not consistently monitored, so work would not get checked off. To combat the issue, GitHub’s feature and task ticket creation mechanism should have been exploited, which would involve the team in the creation and delegation of tasks and see the progress of the project. Unfortunately, while this was proposed at the start of the Semester, it was not enforced.  Additionally, while a rough timeline had been created at the start of the project, the key milestones and deliverables should be divided into fortnight long sprints. This ensures that tasks are to be completed in a set amount of time with certain accountability as well as providing opportunities at the end of every sprint to revise the current timeline. Thus, a stronger project management system can ensure a clear and directed project timeline, healthy and outcome-oriented collaboration, and work accountability.</p>
+
+<h2>3.0	Project Scope</h2>
+<h3>3.1	Initial Project Scope</h3>
+<p>At the start of the Semester, the project scope was to develop of a 2-D flood visualisation application using the Flutter application development framework. The scope also included the development of a sophisticated, considered, and reliable flood algorithm for accurate flood protection and risk calculation. The 2-D aspect of the project was rejected early in the Semester due its lack of ingenuity upon and the consideration of the provided project brief. </p>
+<h3>3.2	Evolution of Project Scope</h3>
+<p>The revised plan was to develop a 3-D VR flood visualization, but that required discontinuing the use of Flutter as it primarily supports 2-D static applications. Thus, Unity was adopted for its ease of use and due to a plethora of external libraries and assets. With plans to continue the development of the flood algorithm as it could be utilised in Unity, two issues arose in the tailing end of the Semester: (1) the difficulty in creating a flood mesh in Unity from pre-generated flood points; and (2), given (1) is achieved, high time complexity and CPU load of animating each of the flood data point in real-time would render the application useless. Upon this realisation, the project scope and direction were once again changed to reflect the discontinuation of the algorithm. Thus, through some research, the FLOW Unity asset was chosen as the water modelling tool in our project. With limited time, the VR aspect of the application was dropped as it was flagged at this stage as a potential extension to the application. This transition was difficult but needed to have a working prototype at the end of the Semester. </p>
+
+<h2>4.0	Contributions</h2>
+<h3>4.1	Personal Contributions</h3>
+<p>As mentioned in Section 1.2, my main contribution was the development of the inundation algorithm and its implementation. This was essential in the development of the application and mentioned in the original project scope. With issues regarding the implementation of algorithm and the conversion of the data points into a mesh in Unity, my involvement in the software development of the application reduced and I focused heavily on the design of the application and user testing. Having expertise in design, I designed and developed the Floodit brand – from the designing of the logo to the development of low- to medium-fidelity prototypes, and finally, to the creation of the Kickstarter video. While the revised project scope was not an ideal scenario, redistribution of work and tasks played a vital role in the eventual delivery and presentation of the final working prototype of the application, and in meeting of the final project goals. </p>
+<h3>4.2	Team Members Contributions</h3>
+<p>In the original project scope, me, Jason, and Hunter were tasked in the development of the inundation algorithm; Khrisna focused on the construction of the Brisbane Blender model; Carl and Gatsby, the lead Unity developers, specifically Carl focused on the VR aspect of the project. Significant work was achieved under the original plan, however the transition in using the FLOW Unity asset caused major team task reallocation. Since our application’s main functions are the Player and Creative modes, each half of the team focused on one aspect, and the VR component was also consequently dropped due to lack of team resources and revised plan. Overall, with changing scope, each team member’s contribution to final project scope and the deliverable changed accordingly.</p>
+
+<h2>5.0	Ethical Concerns</h2>
+<p>It was immediately apparent that an accurate flood model would be extremely difficult to develop in the limited time of a Semester, hence ethically, it was important to get users to understand that Floodit is only an educational tool. A warning was created and placed in the gameplay of the application to get users to appreciate this. Reflecting upon future development of the application, to create a realistic model, rain data and other factors which rely on the user’s location might need to be considered, which can pose a privacy concern, thus careful thought would need to be placed here.</p>
+
+<h2>6.0	Future Directions & Conclusion</h2>
+<p>Overall, there are many aspects of the team dynamic, structure and project management that would need to be revised to facilitate the potential future development of Floodit, given more time. Reflecting on the methods used for project management, Kanban and GitHub tools should be adopted as they ensure team productivity and accountability. Additionally breaking tasks and splitting them into sprints, in an Agile manner, would reduce work redundancy and ensure progression in the development of the application. I have learnt that enforcing these methods in any team, will guarantee healthy software development and the desired project deliverables.</p>

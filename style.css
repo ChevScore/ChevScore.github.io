@@ -126,11 +126,13 @@ menu {
 
 /* Navigation Links */
 
-nav {
+menu nav {
     overflow: hidden;
 }
 
-nav > ul {
+menu nav > ul {
+    width: 0;
+    height: 0;
     list-style: none;
     display: flex;
     flex-direction: column;
@@ -140,11 +142,13 @@ nav > ul {
     transition: transform 0.5s ease;
 }
 
-nav > ul.open {
+menu nav > ul.open {
+    width: 100%;
+    height: auto;
     transform: translateX(0);
 }
 
-nav > ul > li > a {
+menu nav > ul > li > a {
     text-decoration: none;
     color: var(--grey);
     font-size: calc(1.5vw + 1rem);
@@ -153,14 +157,42 @@ nav > ul > li > a {
     transition: color 0.5s ease;
 }
 
-nav > ul > li > a:hover {
+menu nav > ul > li > a:hover {
     text-decoration: solid line-through var(--white);
     color: var(--white);
 }
 
-nav > ul:first-child {
+menu nav > ul:first-child {
     margin-top: calc(0.1vw + 0.5rem);
 }
+
+nav.socials > ul {
+    mix-blend-mode: difference;
+    height: 40vh;
+    position: fixed;
+    right: 50px;
+    top: 50%;
+    transform: translateY(-50%);
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+nav.socials svg {
+    filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4));
+    margin: 1vw 0;
+    width: calc(3vw + 10px);
+    height: calc(3vw + 10px);
+    fill: #7c7c7c;
+    transition: fill 0.5s ease;
+}
+
+nav.socials svg:hover {
+    fill: var(--white);
+}
+
 
 /*===========================================================================*/
 /* INDEX.HTML                                                              */
@@ -209,6 +241,8 @@ h2.subheading::before {
 }
 
 .about-content > p {
+    text-align: justify;
+    font-size: calc(0.5vw + 1rem);
     height: 80%;
     margin: 20px;
     padding: 20px;
@@ -253,12 +287,16 @@ h2.subheading::before {
     display: flex;
     justify-content: center;
     filter: grayscale(0.9);
+    position: relative;
 }
 
 .about-image > img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     max-width: 100%;
     max-height: 100%;
-    display: block;
 }
 
 .about-image > #image-effect {
@@ -270,10 +308,11 @@ h2.subheading::before {
     transition: opacity 0.5s ease;
     word-wrap: break-word;
     letter-spacing: 0.5rem;
-    font-size: 1vw;
+    font-size: calc(0.5vw + 0.5rem);
     overflow: hidden;
     color: var(--background);
     user-select: none;
+    z-index: 10;
 }
 
 .stats {
@@ -311,6 +350,24 @@ h2.subheading::before {
     transform: translate(-50%, -50%);
     font-size: 0.8vw;
     color: var(--grey);
+}
+
+@media only screen and (max-width: 500px) {
+    .about-container {
+        flex-direction: column;
+    }
+
+    .about-content {
+        flex: 1;
+    }
+
+    .about-image {
+        flex: 1;
+    }
+
+    .stats {
+        flex: 1;
+    }
 }
 
 /*===========================================================================*/
@@ -439,7 +496,7 @@ h2.subheading::before {
 }
 
 .name {
-    font-size: 2rem;
+    font-size: 3rem;
     font-family: var(--main-font);
     font-weight: lighter;
     margin-bottom: 1vw;
@@ -452,6 +509,56 @@ h2.subheading::before {
     font-weight: lighter;
     line-height: 1.5;
     color: var(--grey);
+    margin-bottom: 50px;
+}
+
+.description img,
+.description video {
+    width: 100%;
+    height: auto;
+    margin: 1vw 0;
+}
+
+.description figure {
+    width: 60%;
+    margin: 20px auto;
+}
+
+figure figcaption {
+    font-size: 0.8rem;
+    font-family: var(--special-font);
+    font-weight: lighter;
+    line-height: 1.5;
+    color: var(--grey);
+}
+
+.description h2 {
+    font-size: 1.5rem;
+    font-family: var(--main-font);
+    margin-bottom: 1vw;
+    margin-top: 3vw;
+    color: var(--white);
+}
+
+.description h3 {
+    font-size: 1.2rem;
+    font-family: var(--main-font);
+    font-weight: lighter;
+    margin: 1vw 0;
+    color: var(--white);
+}
+
+.description h4 {
+    font-size: 1rem;
+    font-family: var(--main-font);
+    margin: 1vw 0;
+    color: var(--grey);
+}
+
+.description p {
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    background-color: #202020;
 }
 
 /*===========================================================================*/
