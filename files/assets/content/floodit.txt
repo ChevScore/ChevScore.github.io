@@ -5,7 +5,6 @@
 <figure>
     <video controls>
         <source src="files/assets/videos/final_kickstarter_floodit.mp4" />
-        <source src="https://youtu.be/i9gfEuKHlxw" />
     </video>
     <figcaption>Figure 1: Kickstarter Video of the Final Prototype Solution</figcaption>
 </figure>
