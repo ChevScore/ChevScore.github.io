@@ -1,1 +1,103 @@
-<p>CONTENT TO BE WRITTEN</p>
+<h2>Introduction</h2>
+<p>SpellScript is a conversation and gesture-based programming game designed for primary school students in the age range of 7-12, but with a strong emphasis on accessibility for the blind and partially sighted. Our research determined that teaching kids programming concepts is effective in instilling independence in the child, ultimately leading them to success in their education as well as in their future career. Ensuring that such a solution is made accessible and fun for the blind and partially sighted students was critical in this project's success which goes in line with the motto our team adopted early in the Semester, "Empowering blind and partially sighted students in their education". </p>
+
+<h2>Individual Contributions</h2>
+
+<h3>User Research - Interviews</h3>
+<p>Conducting interviews was a crucial part of our project as it gave us the deepest insights into the lives of blind and partially sighted individuals, some of the challenges they faced in their education. Interviewing experts and researchers that have proposed and developed assistive educational technology for blind and the partially sighted, provided us with guidance on how to approach our research and provided our team with a launching point to the ultimate success of our project. This topic discusses my contribution in user research, specifically in, preparing and conducting in-person and Zoom interviews, analysis of results and the write-up of interview analysis section of the report, as well as a commentary and reflection of the topic.</p>
+
+<h4>Conducting Interviews</h4>
+<p>After the Problem Identification Milestone, I took an active role in the preparation and conducting of interviews with our stakeholders. Preparation involved researching the interviewee beforehand, looking into their experience, qualifications as well as their relevance to our project. I created an Interviewee Profile Template on Google Docs in our shared drive, which included the name of the interviewee, a brief summary of their work, a background section, the proposed interviewee questions and finally a raw notes section for writing into during the interview (this being filled in primarily by the other teammates). I have attached an example below: </p>
+
+<p>With prepared questions, we devised a plan such that I was tasked as the interviewer, due to my more outgoing nature, while all present team members were more confortable taking notes. Over the course of the Semester I had the opportunity to interview: </p>
+
+<ul> 
+    <li>Dr Paul Harpur - Associate Professor at the School of Law, UQ</li>
+    <li>Dr Sandra Lewis - a researcher in the field of Blind and partially sighted education from Florida State University;</li>
+    <li>Phia Damsma - the founder and CEO of Sonokids Ballyland;</li>
+    <li>Aaron Howell - Principal IT Systems Programmer associated with the University of Queensland (Neha led this interview as I was running late);</li>
+    <li>Amanda Acutt - works at the Braille House</li>
+    <li>Mark Muscat - the CEO of DASAT;</li>
+    <li>Mick Curran - the CEO of NV Access and one of the two founders of NVDA</li>
+</ul>
+
+<p>The style of the interviews were not rigid, in fact, at times, the format would change to more of a guiding conversation, and this allowance of an not always sticking to the prepared questions was crucial in the "natural expansion or clarification of a point" (Trull, 1964).</p>
+
+<h4>Interview Analysis and Presentation of Findings</h4>
+<p>After conducting interviews right before the interim critique presentation, we still needed to collect the interview notes and make meaning of it. Sensing this need, I proposed the idea of an group affinity diagramming activity. At the end of the group activity, I took the initiative to polish up the affinity diagram as shown in Figure 1, below.</p>
+
+<figure>
+    <img src="images/affinity-diagram.png"></img>
+    <figcaption>Figure 1: Final Affinity Diagram after formatting</figcaption>
+</figure>
+
+<p>In preparation of the Interim Critique Report Submission (as well as what transferred over to the Final Report), I took the responsibility of writing up the Analysis section. This included writing up the process we followed as a team in the Affinity Diagramming activity and finding insights from the groupings made, making specific mention of striking points in all the discussions. Originally, in the Interim Critique Report there was a page with just the affinity diagram, but that was removed as per tutor feedback as the diagram itself served no purpose in the body of the report and instead specific mention to the interviewee using a user code USRA\# was utilised referencing to the raw notes in Appendix A\#.</p>
+
+<h4>Commentary/Reflection</h4>
+<p><b>IMPACT ON PROJECT: </b> The outcomes from conducting user research, specifically interviews played a significant role in the development of our project and ultimately the proposed solution. Insights from the interviewing process provided us with the direction of our project as initially we were considering the development of some Braille technology or improving Braille access for blind and partially sighted students in order to target the declining Braille literacy rates we found in our desk research. However, since then, the findings pushed us to focus on building independence in the child's education and empowering them through teaching programming concepts. Looking back, if I were to this project again, I would have taken the initiative of user research earlier. This was inherently difficult with teams forming in mid Week 3 leaving two weeks of time to decide on a particular domain of interest and conduct preliminary research. I now believe the team would have benefited from earlier research as that would have reduced the desk research that was wasted from preliminary discussions on the topics of Blindness and general Accessibility.</p>
+<p><b>LEARNING:</b> In hindsight, I find that significant learning has been achieved by me in how to conduct interviews effectively. I found that in my first interview with Paul Harpur, I was stubborn on the getting through interview questions as if following a recipe, but that was due to my inexperience. Thinking back, I believe DECO3800 was the first opportunity to conduct proper interviewees and that too with esteemed and distinguished professionals and experts in their respective fields. I found that in Paul's interview there was not much acknowledgement of his answers and often time due to the nature of his answers, I might say the next question even though he had answered it already in previous answers and that would put both of us in a slightly awkward position. I sought feedback from the team right after the interview and Rio said "you did great! But consider using the interviewee's answers to asking leading questions". Suhas then added, "This will come with more practice and we are all inexperienced like you". I took this feedback on board and evidently, in the next interview with Dr Sandra Lewis, I was praised for this when she commented "you're quick to pick up" after I acknowledged one of her previous points and asked a leading question. Another issue I noticed and reflected upon was when preparing interview questions was sometimes I would go very specific into their experiences and work that interviewees would struggle to find a link between why I am inquiring about their work in the context of our project. This put me in a difficult spot once and I managed to come out of it by saying that we are looking to learn from your experiences and work and whether it could benefit our research. It showed me that although I went deeply into the background of the interviewee, I should have instead, and if I were given the opportunity to conduct future interviews, I would focus on the interviewees relevance to our project and produce questions in that manner.</p>
+
+<hr>
+
+<h3>User Research - Interviews</h3>
+<p>Prototyping was a crucial process in bringing out a tangible and testable solution which serves as the team's proof of concept. While this course did not require the building of the prototype, our team endeavoured to create a auditory-only partial solution primarily for testing and evaluation purposes. This was because we realised the difficulty in explaining the functionality and intricacies of our proposed solution to the blind and partially sighted, and determine that having a demonstration of the SpellScript game experience - or at least enough of it - will play a significant role in uncovering whether our gesture-based and conversational solution is practical. This topic discusses my contribution to the Prototyping of SpellScript, from conceptualisation to the write-up of a game script, followed by a commentary and reflection on the processes followed and lessons I have leaned while prototyping. </p>
+
+<h4>Prototype Conceptualisation</h4>
+<p>Right after the Interim Critique Presentation, begun the actual final prototyping phase of the project. Although prototype conceptualisation started back in Week 6, with some of my contribution, prior to the Problem Identification milestone, in the proposal of a haptic glove used to teach STEM concepts at school, our team scrapped the idea moving forward as at that stage no user research had been conducted.</p>
+<p>Thus, in the weeks leading up to the Interim Critique report submission, I took the initiative of conceptualising the proposed solution (Refer to Figure 2, below). I proposed two ideas: (i) a gestured-based solution which replaces Python reserved words and operators with magic spells and (ii) a map/lesson based programming game aimed to teach fundamental programming concepts in a gamified manner, with users being able to input code and seeing a result immediately or upon execution.</p>
+
+<figure>
+    <img src="images/protoyping-activities.png"></img>
+    <figcaption>Figure 2: Prototype Inspiration Document</figcaption>
+</figure>
+
+<figure>
+    <img src="images/spells.png"></img>
+    <figcaption>Figure 3: Final proposed spell gestures</figcaption>
+</figure>
+
+<p>My initial conceptualisation of our prototype was well appreciated by all team members; everyone was inclined with the first idea but I made a point that we could probably combine the two in some meaningful way, commenting on how insights from our user research suggested the development of the fundamental programming concepts in an accessible manner, which would easier done with the second idea, but using the first would allow a unique interaction mode that is fun and immersive.</p>
+
+<p>Refinement of Gesture-based spells: For the final report, I created a collection of refined spells and their respective gestures (Refer to Figure 1, on the left). This development enabled me to convey the importance of the following gesture properties which was then written as a Functional Requirement in the Conceptual Model section of the final report:</p>
+    
+<ul>
+    <li>Minimal Effort: Little effort required for commonly gestured code.</li>
+    <li>Simplistic: Single stroke gestures that can be drawn with little instruction.</li>
+    <li>Memorable: Intuitive and conceptual gestures with strong links to the inherent meaning of the gesture.</li>
+    <li>Unique: Relative to other gestures, they must be unique.</li>
+</ul>
+
+<h4>Development of the Game Script</h4>
+<p>Additionally, after further brainstorming of the prototype, I took the role of the development of a game script, in particular the early interactions of the user in the team's proposed game, from controller tutorial, map screen navigation, and the detailing of the first lesson. Reflection on The script was structured keeping in mind four critical points: </p>
+
+<ol>
+    <li>Development of the voice of the main Instructor, Professor Pinklebottom, as the game's instructing and teaching voice;</li>
+    <li>Development of the Narrator voice for scene audio transcription, navigation and controls instructions</li>
+    <li>Flow of interaction - ensuring that there is an appropriate game script flow with jumps to different parts of the script based on user input</li>
+    <li>Noting feedback and user prompts - this went alongside Timothy's development of the Soundboard and ensuring all noted audio feedback were designed and detailed in the soundboard for testing purposes</li>
+</ol>
+
+<p>CREATION OF STORYBOARDS OF FINAL PROPOSED SOLUTION: My last contribution in the development of the prototype was the creation of storyboards in the Final Report (Refer to Figure 4, below). Although another teammate, Rio, created storyboards for a particular activity detailing how a particular SpellScript lessons would like, there were none created for the overall style and type of interaction of the game, thus, I took this initiative. The storyboards served to convey to a build team how the visual interface would look like as the visuals were not tested as part of our project.</p>
+
+<figure>
+    <img src="images/final-report-script.png"></img>
+    <figcaption>Figure 4: Example page of script generated for the Final Report</figcaption>
+</figure>
+
+<h4>Commentary/Reflection</h4>
+<p>Reflecting on my prototyping work, I find that I was the main contributor to its development, which suggests that perhaps I was very possessive of my idea. Having conceptually detailed out the proposed solution in Week 9, I felt that since we were near the end of Semester, I should take control of this. This resulted in burnout, spending many sleepless nights writing up the script, drawing up storyboards and ensuring everything was ready in time for testing. Looking back, I think my possessive nature come from the effort required to do something collaboratively or split up, especially something that needs to be cohesive, I was afraid that with little little time left, our team would suffer ultimately with any incomplete prototype. This happened particularly in Week 10, when we were creating the script, Rio spent nights prototyping an activity level and that ultimately never got tested as it was not as comprehensive or detailed as mine. The lack of communication there, made me realise that I would need to take the role as the primary prototype developer. While this can also be viewed as a positive as it saved the team in that, they could work on other sections of the report assigned to them, I also believe that give more time the team should have been able to spend a number of collaborative prototyping brainstorming session, not just one. Overall, I think that my prototyping contributions were significant and have resulted in part of why the team succeeded at the end. </p>
+
+<hr>
+
+<h3>Leadership - Facilitating Brainstorming</h3>
+<p>This topic of my portfolio discusses how I applied facilitative leadership principles, specifically in group brainstorming and ideation throughout the Semester, to encourage individual contribution from my teammates, majority of whom would shy away form sharing ideas and voicing their opinion immediately. Facilitative leadership, according to Cufaude (c2018) is about "involv[ed] us[e of] processes and tools to maximize the collective intelligence of individuals in a group to determine the right course of action"(Cufaude, c2018). Empowering teammates and ensuring that they have a say is critical for a team's success. A key aspect of facilitative leadership is the principle of stimulating creative thinking through brainstorming and other idea generative processes. Thus, the next sections will highlight when, where, and how brainstorming session were led to gather a good understanding of what the team wanted to do collectively.</p>
+
+<h4>Individual Contribution</h4>
+<p>I organised butcher's paper and markers for our team's first brainstorming session in Week 3. As a facilitator, I ensured that every team member had a pen or marker to doodle out ideas on the paper starting with my 'alien doodle'. That triggered the writing of Space in our building list of domains. From there, every team member put out ideas of their interest and after a list of over 20 domains and related ideas, we then cut down, each of us picking 1 ideas each and then later doing independent research into them (I chose Accessibility). My main contribution was in ensuring that the flow of discussion and idea jotting was uninterrupted and for every team member to have a say in what they like or don't like.</p>
+<p>Later in Week 5, I organised a further brainstorming activity, this time with to select a problem space in the chosen domain of Blindness (Accessibility). I created a Padlet which contained column for research and ultimately an identification of a problem or challenge in our domain. Since I knew that discussion will be limited and difficult, I organised an anonymous voting through Google Forms. This contribution was well received by my teammates as anonymous voting allowed the most feedback on all the domains and ultimately a problem space was identified (Empowering Blind and Partially Sighted students in their education).</p>
+<p>Similarly, a meeting was held to brainstorm potential stakeholders in Week 7. I suggested and organised a Miro board frame to work on collaboratively which helped identify stakeholders and ultimately we achieved drafting emails for all identified stakeholders.</p>
+
+<h4>Commentary/Reflection</h4>
+<p>Adopting a facilitative leader attitude since the beginning of the Semester played a significant role in the team's success. Ever since forming the team, I noticed the more reserved, independently working and shy attitudes of all of my teammates. I learned through the journey of this course that not everyone is comfortable at times to share ideas, whether that is a personality matter or a language barrier, which was evident with two of my teammates. Looking back, I know myself to be outspoken at times and have come across at many occasions prior to this course as overpowering in conversation and not letting other voice their opinion and to let them say what they think, and this is not intentional. After being acquainted to the team in Week 2, I realised that I need to make a more conscious effort in letting the other teammates share ideas, and even if there is not more direct discussion, there needs to be a way to brainstorm ideas collaboratively in some other most appropriate manner. If I did not do this, then my team would feel that I am bossy and only my idea gets chosen resulting in less team engagement and resulting adversaries to our team chemistry.</p>
+<p>Although brainstorming sessions were frequent and proved to be effective, I had sometimes the tendency to formulate conclusions and move forward quickly, and usually during Studios or organised meetings. In such interactions, I would be the only one discussing the various points made, arguing and for them rather than providing an opportunity and means for other to voice their opinions. Thus in such interactions I felt that productivity of group brainstorming was dissolved by minimal discussion of those presented ideas. There was only one time where I believe I facilitated the brainstorming session perfectly was in Week 5. The creation of a Padlet board meant that independent ideas and work could be placed here and then during the Zoom discussion meeting, I provided the opportunity for each member to discuss their research and ultimately facilitated anonymous voting through Google Forms. Reflecting on this, I think I should I have done polling and going through the team member by member to share their ideas more often. </p>
+<p>Overall, while my facilitative leader attitude demonstrated team collaboration and idea sharing, I strongly believe I could have done better and adopted more facilitative manager principles in my leadership to ensure that every teammate has an equal say in the project, its direction and deliverables. </p>

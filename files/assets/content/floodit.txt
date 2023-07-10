@@ -3,9 +3,7 @@
 <p>Floodit is a 3-D flood simulation and visualisation tool that provides a 3-D visualisation and narrative experience enabling users to understand and reflect upon the risks of flooding in Brisbane. With the aim to immerse users in this educational and explorative experience, Floodit offers two modes of playability: (a) Creative mode – an observer sand-box experience allowing users to manipulate the flood and overlook its effects on different parts of Saint Lucia; and (b) Player mode – a narrative experience where users get to a refuge point avoiding the flood, allowing them to appreciate the difficulties of navigating a flooded Brisbane. </p>
 
 <figure>
-    <video controls>
-        <source src="files/assets/videos/final_kickstarter_floodit.mp4" />
-    </video>
+    <iframe src="https://youtu.be/i9gfEuKHlxw"></iframe> 
     <figcaption>Figure 1: Kickstarter Video of the Final Prototype Solution</figcaption>
 </figure>
 

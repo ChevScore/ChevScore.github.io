@@ -618,7 +618,8 @@ h2.subheading::before {
 }
 
 .description img,
-.description video {
+.description video,
+.description iframe {
     width: 100%;
     height: auto;
     margin: 1vw 0;
@@ -664,6 +665,12 @@ figure figcaption {
     padding: 0.5rem;
     margin-bottom: 1rem;
     background-color: #202020;
+}
+
+.description ul,
+.description ol {
+    padding: 0.5rem;
+    margin: 1rem;
 }
 
 /*===========================================================================*/
